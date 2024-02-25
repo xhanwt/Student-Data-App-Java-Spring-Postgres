@@ -1,0 +1,7 @@
+{
+    "java.project.sourcePaths": [
+        "src/test/java/cmpt276sfu/quizapp",
+        "src/main/java/cmpt276sfu/quizapp",
+        "data-app-asn2-cmpt276/src/main/java/com/cmpt276asn2/dataappasn2cmpt276"
+    ]
+}
