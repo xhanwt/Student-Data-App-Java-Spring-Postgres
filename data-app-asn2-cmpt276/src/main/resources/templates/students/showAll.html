@@ -13,7 +13,7 @@
             height: var(--height);
             border: 2px solid black; /* Add border to create boxes */
             padding: 10px; /* Add padding for spacing */
-            margin: 10px; /* Add margin for spacing between boxes */
+            margin: 3px; /* Add margin for spacing between boxes */
             display: inline-block; /* Ensure inline-block to display boxes horizontally */
             background-color: lightgray; /* Set background color */
             position: relative; /* Set position relative for absolute positioning */
@@ -48,7 +48,7 @@
     <!-- Displaying current students as rectangles -->
     <h2>Current Students</h2>
     <div class="container">
-        <div class="student" th:each="student:${students}" th:style="'--weight: ' + ${student.weight} + 'px; --height: ' + ${student.height} + 'px; color: ' + ${student.haircolor.toLowerCase()}">
+        <div class="student" th:each="student:${students}" th:style="'--weight: ' + ${student.weight} * 3 + 'px; --height: ' + ${student.height} * 3 + 'px; color: ' + ${student.haircolor.toLowerCase()}">
             <span th:text="${student.name}"></span><br>
             <span th:text="${student.gpa}" class="gpa"></span><br>
             <!-- Add links to delete or update student -->
