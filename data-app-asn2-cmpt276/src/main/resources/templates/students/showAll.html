@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add User</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <style>
+        /* Define CSS custom properties for width and height */
+        .student {
+            width: var(--weight);
+            height: var(--height);
+            border: 2px solid black; /* Add border to create boxes */
+            padding: 10px; /* Add padding for spacing */
+            margin: 10px; /* Add margin for spacing between boxes */
+            display: inline-block; /* Ensure inline-block to display boxes horizontally */
+            background-color: lightgray; /* Set background color */
+            position: relative; /* Set position relative for absolute positioning */
+        }
+
+        .student .actions {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+        }
+
+        .student .actions form {
+            display: inline-block;
+        }
+
+        /* New CSS to align student boxes to the bottom */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            align-items: flex-end; /* Align items to the bottom */
+            gap: 20px; /* Adjust gap between student boxes */
+        }
+    </style>
+</head>
+<body>
+    <h1>Student Tracker</h1>
+    
+    <!-- Button to add new student -->
+    <a href="/add.html" class="button">Add New Student</a>
+
+    <!-- Displaying current students as rectangles -->
+    <h2>Current Students</h2>
+    <div class="container">
+        <div class="student" th:each="student:${students}" th:style="'--weight: ' + ${student.weight} + 'px; --height: ' + ${student.height} + 'px; color: ' + ${student.haircolor.toLowerCase()}">
+            <span th:text="${student.name}"></span><br>
+            <span th:text="${student.gpa}" class="gpa"></span><br>
+            <!-- Add links to delete or update student -->
+            <div class="actions">
+                <form th:action="@{/students/delete/{uid}(uid=${student.uid}, name=${student.name})}" method="post">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+                <form th:action="@{/students/get/{uid}(uid=${student.uid}, name=${student.name})}" method="get">
+                    <button type="submit" class="btn btn-warning">Edit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
