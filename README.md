@@ -24,9 +24,8 @@ This project is a web application designed to track a group of students. It allo
 3. Use the "Add New Student" button to add new students and fill in their details.
 4. Existing students are displayed as rectangles on the page. Clicking on a student's rectangle allows you to edit or delete the student.
 
-## Creative Features
+## Features
 
-- The display of students as rectangles provides a visually appealing and intuitive way to view student data.
 - The application dynamically sizes and colors the rectangles based on the student's attributes, making it easier to distinguish between different students.
 - Additional attributes beyond the minimum requirements can be easily added to the student data model for increased flexibility and customization.
 
